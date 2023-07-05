@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+    <link href="style.css" rel="stylesheet">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    </head>
+    <body>
+        <div class="row">
+
+            <div id="box">
+                <div class="rel"><div id="circleCosConnector"></div></div>
+                <div class="rel"><div id="circleSinConnector"></div></div>
+                <div class="cAxis axis" id="xAxis"></div>
+                <div class="cAxis axis" id="yAxis"></div>
+                <div class="circle"></div>
+
+                <div class="rel"><div class="line xLine hLine" id="chLine"></div></div>
+                <div class="rel"><div class="line yLine vLine" id="cvLine"></div></div>
+                <canvas id="arcCanvas"></canvas>
+                <div class="rel"><div class="line rLine dLine" id="cdLine"></div></div>
+
+                <div class="rel"><div id="circleGraphBall" class="ball"></div></div>
+                
+                <div id="coordinatesDiv">
+                    <p id="coordinates">x, y</p>
+                </div>
+                <div id="degreesDiv">
+                    <p id="degrees">0°</p>
+                </div>
+                
+            </div>
+
+            <div class="rel"><div id="cWhite"></div></div>
+
+            <div id="sinBox">
+                <div class="axis" id="sxAxis"></div>
+                <div class="rel"><div class="axis syAxis" id="syAxis"></div></div>
+                <div class="rel"><div class="axis syAxis" id="syAxis1"></div></div>
+                <div class="rel"><div class="axis syAxis" id="syAxis2"></div></div>
+                <div class="rel"><div class="axis syAxis" id="syAxis3"></div></div>
+                <div class="rel"><div class="axis syAxis" id="syAxis4"></div></div>
+
+                <div class="line aLine hLine" id="sinhLine"></div>
+                <div class="rel"><div class="line yLine vLine" id="sinvLine"></div></div>
+
+                <div class="rel"><div id="sinConnector"></div></div>
+                <div class="rel"><div id="sinBall" class="ball"></div></div>
+
+                <canvas id="sinCanvas"></canvas>
+                <div class="rel"><p id="sinNumbersBox"></p></div>
+            </div>
+            <div id="sideBox"></div>
+
+        </div>
+
+        <div class="row">
+            
+            <div id="connectorBox">
+                <canvas class="connectorCanvas" id="middleConnectorArcCanvas"></canvas>
+                <canvas class="connectorCanvas" id="changingConnectorArcCanvas"></canvas>
+            </div>
+
+            <div class="rel"><div id="cosWhite"></div></div>
+
+            <div id="cosBox">
+                <div class="axis" id="cxAxis"></div>
+                <div class="rel"><div class="axis cyAxis" id="cyAxis"></div></div>
+                <div class="rel"><div class="axis cyAxis" id="cyAxis1"></div></div>
+                <div class="rel"><div class="axis cyAxis" id="cyAxis2"></div></div>
+                <div class="rel"><div class="axis cyAxis" id="cyAxis3"></div></div>
+                <div class="rel"><div class="axis cyAxis" id="cyAxis4"></div></div>
+
+                <div class="line aLine hLine" id="coshLine"></div>
+                <div class="rel"><div class="line xLine vLine" id="cosvLine"></div></div>
+
+                <div class="rel"><div id="cosConnector"></div></div>
+                <div class="rel"><div id="cosBall" class="ball"></div></div>
+
+                <canvas id="cosCanvas"></canvas>
+                <div class="rel" id="cosNumbersBoxRel"><p id="cosNumbersBox"></p></div>
+            </div>
+            <div id="sideBox"></div>
+
+        </div>
+
+        <p id="message">Try moving the cos graph</p>
+    </body>
+    <script src="main.js"></script>
+</html>

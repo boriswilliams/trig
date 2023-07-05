@@ -1,0 +1,328 @@
+:root {
+    --thickness: 4px;
+    --radius: 120px;
+    --green: rgb(70, 207, 70);
+    --blue: rgb(55, 55, 255);
+    --red: red;
+    --lGrey: lightgrey;
+    --dGrey: grey;
+    --black: black;
+    --axis: 2.3;
+    --gap: 50px;
+    --numbersBoxWidth: 150px;
+    --fontSize: 15px;
+    --numbersBoxPadding: 20px;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: var(--fontSize);
+    font-weight: bold;
+    box-sizing: border-box;
+    padding-top: 55px;
+    overflow: hidden;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#message {
+    top: 0;
+    position: absolute;
+    transform: translate(0, -5px);
+}
+
+/*
+ * Circle graph
+ */
+
+#box {
+    height: calc(var(--axis) * var(--radius));
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.axis, .line {
+    position: absolute;
+    border-radius: var(--thickness);
+}
+
+.axis {
+    background:var(--lGrey);
+    z-index: 0;
+}
+
+.cAxis {
+    height: var(--thickness);
+    width: calc(var(--axis) * var(--radius));
+}
+
+#yAxis {
+    rotate: 90deg;
+}
+
+.circle {
+    border-radius: 50%;
+    position: absolute;
+    height: calc(2 * var(--radius) - var(--thickness));
+    width: calc(2 * var(--radius) - var(--thickness));
+    border: var(--thickness) solid var(--dGrey);
+    z-index: 1;
+}
+
+.ball {
+    aspect-ratio: 1;
+    width: calc(3 * var(--thickness));
+    border-radius: 50%;
+    background: var(--black);
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    position: relative;
+}
+
+.xLine {
+    background: var(--red);
+}
+
+.yLine {
+    background: var(--blue);
+}
+
+.rLine {
+    background: var(--black);
+}
+
+.aLine {
+    background: var(--green);
+}
+
+.hLine {
+    height: var(--thickness);
+}
+
+.vLine {
+    width: var(--thickness);
+    transform: translate(calc(var(--thickness) / -2));
+}
+
+.dLine {
+    height: var(--thickness);
+    width: var(--radius);
+    transform: translate(calc(var(--thickness) / -2), calc(var(--thickness) / -2));
+    transform-origin: 0 0;
+}
+
+#arcCanvas {
+    position: absolute;
+    z-index: -500;
+}
+
+#coordinatesDiv, #degreesDiv {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    padding-left: var(--sidePadding);
+    padding-right: var(--sidePadding);
+    border-radius: 5px;
+    z-index: 100;
+    background-color: rgba(255,255,255,0.4);
+}
+
+#coordinatesDiv {
+    --sidePadding: 5px;
+    height: 30px;
+}
+
+#degreesDiv {
+    --sidePadding: 3px;
+    height: 22px;
+}
+
+/*
+ * sin
+ */
+
+#sinhLine {
+    position: absolute;
+}
+
+#sinBox {
+    display: flex;
+    align-items: center;
+    padding-left: var(--gap);
+}
+
+#sinvLine {
+    position: relative;
+}
+
+#sxAxis, #cxAxis {
+    height: var(--thickness);
+}
+/*sin and cos*/
+.syAxis, .cyAxis {
+    width: var(--thickness);
+    height: calc(var(--axis) * var(--radius));
+    position: relative;
+    transform: translate(-50%, -50%);
+}
+
+#sinConnector, #cosConnector {
+    background: var(--lGrey);
+    height: var(--thickness);
+    position: relative;
+    z-index: -4;
+    transform: translate(0, -50%);
+}
+
+#circleSinConnector {
+    background: var(--lGrey);
+    width: 200px;
+    height: var(--thickness);
+    position: absolute;
+    z-index: -4;
+    transform: translate(0, -50%);
+}
+
+/*
+ * cos
+ */
+
+#cosConnector {
+    z-index: 0;
+}
+
+#circleCosConnector {
+    background: var(--lGrey);
+    width: var(--thickness);
+    position: absolute;
+    z-index: -4;
+    transform: translate(-50%, 0);
+}
+
+#coshLine {
+    position: absolute;
+    z-index: -1;
+}
+
+#cosBox {
+    display: flex;
+    align-items: center;
+    transform-origin: calc(var(--gap) / -2) calc(var(--gap) / +2);
+    padding-top: var(--gap);
+    background: white;
+}
+
+#cvLine {
+    position: absolute;
+    z-index: 500;
+    transform: translate(calc(var(--thickness) / -2), calc(var(--thickness) / -2));
+}
+
+/*
+ * cos rotation
+ */
+
+.rel {
+    position: relative;
+    width: 0;
+    height: 0;
+}
+
+#cosvLine {
+    position: relative;
+}
+
+#cosWhite {
+    height: calc(var(--radius) * var(--axis) + var(--gap));
+    transform: translate(-100%, -50%);
+    position: relative;
+    z-index: -10;
+    width: var(--gap);
+    background: white;
+    transform-origin: calc(var(--gap) / +2) calc(var(--gap) / +2);
+}
+
+.connectorCanvas {
+    position: absolute;
+}
+
+#changingConnectorArcCanvas {
+    z-index: -1;
+}
+
+#middleConnectorArcCanvas {
+    z-index: -11;
+}
+
+#cosCanvas, #sinCanvas {
+    z-index: 1;
+}
+
+#chLine {
+    z-index: 3;
+    transform: translate(calc(var(--thickness) / -2), calc(var(--thickness) / -2));
+}
+
+#cdLine {
+    z-index: 4;
+}
+
+#coshLine {
+    z-index: 1;
+}
+
+#cosvLine {
+    z-index: 2;
+}
+
+#cWhite {
+    width: calc(var(--radius) * var(--axis));
+    height: var(--gap);
+    transform: translate(-100%, calc((var(--radius) * var(--axis)) / 2));
+    position: relative;
+    z-index: -10;
+    background: white;
+}
+
+/*
+ * numbers box
+ */
+
+#sinNumbersBox, #cosNumbersBox {
+    width: var(--numbersBoxWidth);
+    transform: translate(0, -50%);
+    margin: 0;
+    padding: var(--numbersBoxPadding);
+    line-height: 150%;
+}
+
+#sideBox {
+    width: calc(var(--numbersBoxWidth) + var(--numbersBoxPadding));
+    height: 50px;
+}
